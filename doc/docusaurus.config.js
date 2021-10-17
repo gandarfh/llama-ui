@@ -46,7 +46,7 @@ const config = {
         backgroundColor: '#0E71CC',
         textColor: '#fff',
         content:
-          'Em desenvolvimento, cuidado ao utilizar, passivo a breaking changes.',
+          'Em desenvolvimento, cuidado ao utilizar, passivo a breaking changes!',
         id: 'development-message-id',
         isCloseable: false,
       },
