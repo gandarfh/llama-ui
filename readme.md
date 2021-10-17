@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logos/logo-llama-ds.png" alt="llama logo" width="340" />
+  <img src="logos/logo-llama-ds.png" alt="llama logo" height="280" />
 </p>
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
