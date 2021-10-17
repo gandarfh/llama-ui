@@ -19,14 +19,26 @@
     "lint": "eslint ./ --max-warnings=0",
     "lint:fix": "eslint ./ --max-warnings=0 --fix",
     "cli": "yarn workspace @llama-ui/cli start",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "storybook": "start-storybook -s ./assets -p 6006",
+    "build-storybook": "build-storybook"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.8",
     "@changesets/changelog-github": "^0.4.1",
     "@changesets/cli": "^2.17.0",
     "@emotion/eslint-plugin": "^11.2.0",
+    "@storybook/addon-a11y": "^6.3.12",
+    "@storybook/addon-actions": "^6.3.12",
+    "@storybook/addon-essentials": "^6.3.12",
+    "@storybook/addon-links": "^6.3.12",
+    "@storybook/react": "^6.3.12",
+    "@storybook/theming": "^6.3.12",
+    "@types/react": "^17.0.30",
+    "@types/react-dom": "^17.0.9",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "@typescript-eslint/parser": "^5.0.0",
+    "babel-loader": "^8.2.2",
     "eslint": "^8.0.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
@@ -42,9 +54,12 @@
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   },
-  "dependencies": {},
+  "dependencies": {
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
   "lint-staged": {
-    "*.js": "lint:fix --cache",
-    "*.ts?(x)": "eslint --cache"
+    "*.js": "eslint --cache --max-warnings=0",
+    "*.ts?(x)": "eslint --cache --max-warnings=0"
   }
 }

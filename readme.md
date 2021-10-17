@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="logos/logo-llama-ds.png" alt="llama logo" height="280" />
+  <img src="assets/logo-llama-ds.png" alt="llama logo" height="280" />
 </p>
 
 [![lerna](https://img.shields.io/badge/maintained%20with-lerna-cc00ff.svg)](https://lerna.js.org/)
@@ -23,24 +23,24 @@ yarn add @llama-ui/react
 
 ```tsx
 // app.tsx
-import React from "react";
-import { ThemeProvider } from "@llama-ui/react";
+import React from 'react'
+import { ThemeProvider } from '@llama-ui/react'
 
 const App = () => {
-  return <ThemeProvider>// your code</ThemeProvider>;
-};
+  return <ThemeProvider>// your code</ThemeProvider>
+}
 
-export default App;
+export default App
 ```
 
 ## setting our theme in your project
 
 ```tsx
 // styles/styled.d.ts
-import "@emotion/react";
-import { IThemeCustom } from "@llama-ui/react";
+import '@emotion/react'
+import { IThemeCustom } from '@llama-ui/react'
 
-declare module "styled-components" {
+declare module 'styled-components' {
   export interface DefaultTheme extends IThemeCustom {}
 }
 ```
