@@ -1,11 +1,11 @@
 {
-  "packages": ["packages/*", "cli"],
+  "packages": ["packages/*", "cli", "doc"],
   "npmClient": "yarn",
   "version": "independent",
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "ignoreChanges": [],
+      "ignoreChanges": ["cli", "doc"],
       "message": "chore(release): publish"
     }
   }
