@@ -1,0 +1,5 @@
+packages/**/lib
+package*.json
+!packages/**/package.json
+packages/**/lib/*
+
