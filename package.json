@@ -14,6 +14,11 @@
   },
   "author": "gandarfh <joao.ferreira@llama.com>",
   "license": "MIT",
+  "scripts": {
+    "lint": "eslint packages --max-warnings=0",
+    "lint:fix": "eslint packages --max-warnings=0 --fix",
+    "prepare": "husky install"
+  },
   "devDependencies": {
     "@changesets/changelog-github": "^0.4.1",
     "@changesets/cli": "^2.17.0",
@@ -29,9 +34,15 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "eslint-plugin-unused-imports": "^1.1.5",
+    "husky": ">=6",
     "lerna": "^4.0.0",
+    "lint-staged": ">=10",
     "prettier": "^2.4.1",
     "typescript": "^4.4.4"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "lint-staged": {
+    "*.js": "lint:fix --cache",
+    "*.ts?(x)": "eslint --cache"
+  }
 }
