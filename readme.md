@@ -1,4 +1,4 @@
-<p align="center">
+<p style="background: #fff; border-radius: 8px;" align="center">
   <img src="logos/logo-llama-ds.png" alt="llama logo" width="340" />
 </p>
 
