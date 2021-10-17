@@ -5,7 +5,8 @@
   "private": true,
   "workspaces": {
     "packages": [
-      "packages/*"
+      "packages/*",
+      "cli"
     ]
   },
   "repository": {
@@ -15,8 +16,9 @@
   "author": "gandarfh <joao.ferreira@llama.com>",
   "license": "MIT",
   "scripts": {
-    "lint": "eslint packages --max-warnings=0",
-    "lint:fix": "eslint packages --max-warnings=0 --fix",
+    "lint": "eslint ./ --max-warnings=0",
+    "lint:fix": "eslint ./ --max-warnings=0 --fix",
+    "cli": "yarn workspace @llama-ui/cli start",
     "prepare": "husky install"
   },
   "devDependencies": {

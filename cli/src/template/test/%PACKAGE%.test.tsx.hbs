@@ -1,0 +1,12 @@
+import React from 'react' import { axe } from 'jest-axe' import { render, screen
+} from '@testing-library/react' import { RetrieverProvider } from
+'@llama-ui/react' import { matchers } from '@emotion/jest' import %COMPONENT%
+from '../src/%COMPONENT%' expect.extend(matchers) const %COMPONENT%Render = (
+<RetrieverProvider>
+  <COMPONENT% data-testid='%PACKAGE%-test'>%COMPONENT%</COMPONENT%>
+</RetrieverProvider>
+) describe('%COMPONENT%', () => { it('should render the %PACKAGE%', () => {
+render(%COMPONENT%Render)
+expect(screen.getByTestId('%PACKAGE%-test')).toBeTruthy() }) it('should validate
+accessibility', async () => { const { container } = render(%COMPONENT%Render)
+const result = await axe(container) expect(result).toHaveNoViolations() }) })

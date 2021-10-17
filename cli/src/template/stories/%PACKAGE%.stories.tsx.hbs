@@ -1,0 +1,17 @@
+import React from 'react'
+import { Meta, Story } from '@storybook/react'
+import %COMPONENT%, { %COMPONENT%Props } from '../src'
+
+export default {
+  title: 'Design System/%COMPONENT%',
+  component: %COMPONENT%,
+  argTypes: {},
+} as Meta<%COMPONENT%Props>
+
+const Template: Story<%COMPONENT%Props> = (args) => <%COMPONENT% {...args} />
+
+export const %COMPONENT%Default = Template.bind({})
+
+%COMPONENT%Default.args = {
+  children: '%COMPONENT%',
+} as %COMPONENT%Props

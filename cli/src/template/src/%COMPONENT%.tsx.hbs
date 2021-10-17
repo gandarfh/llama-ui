@@ -1,0 +1,15 @@
+import React from 'react'
+import { llama, StylesProps } from '@llama-ui/system'
+import { HTMLLlama } from '@llama-ui/system/lib/llama'
+
+type RetrieverProps = Omit<StylesProps, 'as'> & HTMLLlama<'div'>
+
+export interface %COMPONENT%Props extends RetrieverProps {
+  children?: React.ReactNode
+}
+
+const %COMPONENT%: (props: %COMPONENT%Props) => JSX.Element = ({ children, ...rest }) => {
+  return <llama.div {...rest}>{children}</llama.div>
+}
+
+export default %COMPONENT%
