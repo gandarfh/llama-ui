@@ -21,7 +21,7 @@ export const copyFiles = async ({ name, description }: CopyFiles) => {
   const packageName = lodash.kebabCase(name)
 
   const from = path.join(__dirname, '../../template')
-  const to = `${path.join(__dirname, '../../../../packages')}/${componentName}`
+  const to = `${path.join(__dirname, '../../../../packages')}/${packageName}`
 
   packageExist(to)
 

@@ -3,4 +3,6 @@ yarn-error.log
 .eslintcache
 *.log
 
+lib
+
 .jest-*

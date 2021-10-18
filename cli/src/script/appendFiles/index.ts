@@ -17,11 +17,10 @@ const exec = util.promisify(child.exec)
 export const addPackageToCore = async (name: string) => {
   const packageName = lodash.kebabCase(name)
 
-  await exec(`lerna add @llama-ui/system --scope=@llama-ui/${packageName}`)
+  // await exec(`lerna add @llama-ui/system --scope=@llama-ui/${packageName}`)
+  await exec(`yarn workspace @llama-ui/${packageName} run build`)
   await exec(`lerna add @llama-ui/${packageName} --scope=@llama-ui/react`)
-
-  await exec(`lerna clean --yes`)
-  await exec(`lerna run build`)
+  await exec(`yarn workspace @llama-ui/react run build`)
 }
 
 export const appendPackage = async ({ name, data, path, where }: Append) => {
