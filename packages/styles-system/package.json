@@ -1,13 +1,13 @@
 {
   "private": false,
-  "name": "@llama-ui/react",
+  "name": "@llama-ui/styles-system",
   "version": "0.0.1",
-  "description": "package to manage all packages",
+  "description": "Package to create llama components and styled props",
   "keywords": [
     "React Component",
     "llama ui",
     "UI library",
-    "react"
+    "styles-system"
   ],
   "author": "Joao <jgdsantosferreira@gmail.com>",
   "repository": {
@@ -33,7 +33,7 @@
     "build": "rm -rf lib && tsc"
   },
   "dependencies": {
-    "@llama-ui/styles-system": "^0.0.1",
+    "@emotion/css": "^11.5.0",
     "@llama-ui/theme-system": "^0.0.1"
   }
 }
