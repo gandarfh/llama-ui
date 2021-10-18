@@ -26,6 +26,8 @@
     "cli": "yarn pkg @llama-ui/cli start",
     "doc": "yarn pkg @llama-ui/doc start",
     "prepare": "husky install",
+    "version-packages": "changeset version",
+    "release": "changeset publish",
     "storybook": "start-storybook -s ./assets -p 6006",
     "build-storybook": "build-storybook"
   },

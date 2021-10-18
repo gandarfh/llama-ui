@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
 
-import StylesSystem, { StylesSystemProps } from '../src'
+import StylesSystem, { StylesSystemProps } from '../src/styles-system'
 
 export default {
   title: 'Design System/StylesSystem',
