@@ -1,5 +1,3 @@
-import { Theme } from '@emotion/react'
-
 export type ColorsType = {
   [key: string]:
     | string
@@ -7,17 +5,6 @@ export type ColorsType = {
         [hue: number]: string
       }
 }
-
-type Colors = Theme['colors']
-
-type TesteColorStrings = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  [keyColors in keyof Colors]: `${keyColors}.${keyof Colors[keyColors]}`
-}
-
-type ValueOf<T> = T[keyof T]
-export type AllKeys = ValueOf<TesteColorStrings>
 
 export const colorsLight = {
   primary: {
