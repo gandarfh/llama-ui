@@ -4,7 +4,7 @@ import { axe } from 'jest-axe'
 import React from 'react'
 expect.extend(matchers)
 
-import StylesSystem from '../src'
+import StylesSystem from '../src/styles-system'
 
 const StylesSystemRender = (
   <StylesSystem data-testid="styles-system-test">StylesSystem</StylesSystem>
