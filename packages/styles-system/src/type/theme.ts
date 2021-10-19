@@ -6,17 +6,15 @@ export type ThemeCSS<Props> = Props & {
   theme: Theme
 }
 
-type TesteColorStrings = {
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  [keyColors in keyof Theme['colors']]: `${keyColors}.${keyof Theme['colors'][keyColors]}`
-}
-
 type ValueOf<T> = T[keyof T]
+
+type Keys = {
+  [key in keyof ValueOf<Theme['colors']>]: key
+}
 
 export type CSSResponsive<CSS> = Responsive<CSS>
 
-export type Colors = ValueOf<TesteColorStrings>
+export type Colors = `${keyof Theme['colors']}.${ValueOf<Keys>}`
 
 export type Fonts = keyof Theme['fonts']['sizes']
 

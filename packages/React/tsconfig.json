@@ -4,6 +4,6 @@
   "compilerOptions": {
     "outDir": "./lib"
   },
-  "include": ["src", "../../styled.d.ts"],
+  "include": ["src", "../../llama.d.ts"],
   "exclude": ["stories", "test"]
 }
