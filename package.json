@@ -22,7 +22,7 @@
     "test": "jest --env=jsdom",
     "test:watch": "jest --env=jsdom --watch --coverage",
     "test:cov": "jest --env=jsdom --coverage",
-    "build": "lerna build",
+    "build": "lerna run build",
     "pkg": "yarn workspace",
     "cli": "yarn pkg @llama-ui/cli start",
     "doc": "yarn pkg @llama-ui/doc start",
