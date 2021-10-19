@@ -19,7 +19,7 @@ $ yarn
 $ yarn build
 ```
 
-1. Now to create one new package follow this rules.
+4. Now to create one new package follow this rules.
    1. Run `yarn cli`
    2. Provide a name for the package and description
 
