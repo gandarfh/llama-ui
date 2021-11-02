@@ -16,7 +16,7 @@ export type HTMLLlama<Element> = Omit<
 export type LlamaElements = TagType
 
 type ReactRef = {
-  ref?: React.Ref<HTMLElement | SVGElement> | null
+  ref?: React.Ref<HTMLElement | SVGElement> | null | any
 }
 
 export type LlamaProps<T> = StylesProps & HTMLLlama<T> & ReactRef
