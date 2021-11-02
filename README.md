@@ -51,3 +51,84 @@ declare module 'styled-components' {
 | ----------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | React       | [`React`](https://npmjs.com/package/@llama-ui/react)              | [![latest](https://img.shields.io/npm/v/@llama-ui/react/latest.svg)](https://npmjs.com/package/@llama-ui/react)               | [![README](https://img.shields.io/badge/README--@llama-ui/react.svg)](packages/React/README.md)              |
 | ThemeSystem | [`ThemeSystem`](https://npmjs.com/package/@llama-ui/theme-system) | [![latest](https://img.shields.io/npm/v/@llama-ui/theme-system/latest.svg)](https://npmjs.com/package/@llama-ui/theme-system) | [![README](https://img.shields.io/badge/README--@llama-ui/theme-system.svg)](packages/ThemeSystem/README.md) |
+
+# Roadmap
+
+## Documentation to create
+
+- [ ] getting started
+- [ ] Home showing all features and description about llama
+- [ ] styled props (how work)
+- [ ] responsive (how work)
+- [ ] custom theme (creating)
+- [ ] default theme (easy info)
+- [ ] typescript (llama.d.ts)
+- [ ] properties and colors keys
+- [ ] global styles
+
+## Components to create and more documentations
+
+- [x] Factory of any html/svg element
+- [x] Theme provider
+- [x] Global style
+
+- [ ] Typography
+
+  - [ ] Heading
+  - [ ] Paragraph
+
+- [ ] Layouts
+
+  - [ ] Box
+  - [ ] Grid
+  - [ ] Flex
+  - [ ] Container
+
+- [ ] Form
+
+  - [ ] Input
+  - [ ] Button
+  - [ ] Radio Button
+  - [ ] Checkbox
+  - [ ] Switch
+  - [ ] Select
+  - [ ] Date Picker
+  - [ ] Range Picker
+  - [ ] slider
+  - [ ] range slider
+  - [ ] Autocomplete
+
+- [ ] Loadings
+
+  - [ ] circular
+  - [ ] progress
+  - [ ] linear
+  - [ ] dots
+  - [ ] shadow skeleton
+
+- [ ] Table
+
+  - [ ] Head Table
+  - [ ] Column table
+  - [ ] Row table
+  - [ ] Cell table
+
+- [ ] Modal
+
+  - [ ] overlay modal
+  - [ ] Header modal
+  - [ ] content modal
+
+- [ ] Drawer
+
+  - [ ] overlay drawer
+  - [ ] content drawer
+
+- [ ] Tooltip
+
+- [ ] Popover
+
+- [ ] Portal
+
+- [ ] Animations
+<!-- Find animations to create -->
