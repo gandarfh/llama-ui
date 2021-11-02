@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@llama-ui/layout",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "all components to manage and control the layout.",
   "keywords": [
     "React Component",
@@ -33,6 +33,6 @@
     "build": "rm -rf lib && tsc"
   },
   "dependencies": {
-    "@llama-ui/styles-system": "^0.0.1"
+    "@llama-ui/styles-system": "^0.0.2"
   }
 }
