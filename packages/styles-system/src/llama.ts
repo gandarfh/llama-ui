@@ -21,7 +21,6 @@ type ReactRef = {
 
 export type LlamaProps<T> = StylesProps & HTMLLlama<T> & ReactRef
 export type LlamaComponent<T> = (props: LlamaProps<T>) => JSX.Element
-
 export type LlamaFactoryElement = {
   [tag in LlamaElements]: LlamaComponent<tag>
 }
@@ -41,7 +40,7 @@ export type LlamaFactoryElement = {
  * ```
  */
 const llamaFactory = (element: LlamaElements) => {
-  return (props: LlamaProps<typeof element>) => {
+  return React.forwardRef((props: LlamaProps<typeof element>, ref) => {
     // get all valid dom properties.
     const { domProps } = getDomProps(element, props)
 
@@ -61,12 +60,17 @@ const llamaFactory = (element: LlamaElements) => {
     if (props?.as) {
       return React.createElement(props?.as, {
         ...domProps,
+        ref,
         className: css(classe),
       })
     }
 
-    return React.createElement(element, { ...domProps, className: css(classe) })
-  }
+    return React.createElement('div', {
+      ...domProps,
+      ref,
+      className: css(classe),
+    })
+  })
 }
 
 /**
@@ -95,10 +99,10 @@ const llamaFactory = (element: LlamaElements) => {
  *  }
  * ```
  */
-const llama = {} as LlamaFactoryElement
+const llama = {}
 
 tags.forEach((tag) => {
   return (llama[tag] = llamaFactory(tag))
 })
 
-export default llama
+export default llama as LlamaFactoryElement
