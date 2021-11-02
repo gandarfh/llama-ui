@@ -42,11 +42,15 @@ export interface TypographyProps {
    */
   whiteSpace?: CSSResponsive<CSS.Property.WhiteSpace>
   /**
-   * The CSS `white-space` property
+   * The CSS `text-decoration` property
    */
   textDecoration?: CSSResponsive<CSS.Property.TextDecoration>
   /**
-   * The CSS `white-space` property
+   * The CSS `text-ident` property
+   */
+  textIdent?: CSSResponsive<CSS.Property.TextDecoration>
+  /**
+   * The CSS `text-shadow` property
    */
   textShadow?: CSSResponsive<CSS.Property.TextShadow>
 }
@@ -61,6 +65,7 @@ const typography = ({ theme, ...props }: ThemeCSS<TypographyProps>) =>
     responsive(theme, 'line-height', props.lineHeight),
     responsive(theme, 'white-space', props.whiteSpace),
     responsive(theme, 'text-align', props.textAlign),
+    responsive(theme, 'text-indent', props.textIdent),
     responsive(theme, 'text-transform', props.textTransform),
     responsive(theme, 'text-decoration', props.textDecoration),
     responsive(theme, 'text-shadow', props.textShadow)

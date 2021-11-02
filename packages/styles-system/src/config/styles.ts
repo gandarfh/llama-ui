@@ -19,7 +19,8 @@ export const stylesConfig = (props: ThemeCSS<StylesConfigProps>) =>
     config.positions(props),
     config.spaces(props),
     config.typography(props),
-    config.transforms(props)
+    config.transforms(props),
+    config.list(props)
   )
 
 const styles = (props: ThemeCSS<StylesProps>): SerializedStyles =>
