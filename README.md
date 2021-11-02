@@ -50,6 +50,7 @@ declare module 'styled-components' {
 | Project     | Package                                                           | Version                                                                                                                       | Docs                                                                                                         |
 | ----------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | React       | [`React`](https://npmjs.com/package/@llama-ui/react)              | [![latest](https://img.shields.io/npm/v/@llama-ui/react/latest.svg)](https://npmjs.com/package/@llama-ui/react)               | [![README](https://img.shields.io/badge/README--@llama-ui/react.svg)](packages/React/README.md)              |
+| Layout      | [`Layout`](https://npmjs.com/package/@llama-ui/layout)            | [![latest](https://img.shields.io/npm/v/@llama-ui/layout/latest.svg)](https://npmjs.com/package/@llama-ui/layout)             | [![README](https://img.shields.io/badge/README--@llama-ui/layout.svg)](packages/Layout/README.md)            |
 | ThemeSystem | [`ThemeSystem`](https://npmjs.com/package/@llama-ui/theme-system) | [![latest](https://img.shields.io/npm/v/@llama-ui/theme-system/latest.svg)](https://npmjs.com/package/@llama-ui/theme-system) | [![README](https://img.shields.io/badge/README--@llama-ui/theme-system.svg)](packages/ThemeSystem/README.md) |
 
 # Roadmap
@@ -77,12 +78,12 @@ declare module 'styled-components' {
   - [ ] Heading
   - [ ] Paragraph
 
-- [ ] Layouts
+- [x] Layouts
 
-  - [ ] Box
-  - [ ] Grid
-  - [ ] Flex
-  - [ ] Container
+  - [x] Box
+  - [x] Grid
+  - [x] Flex
+  - [x] Container
 
 - [ ] Form
 
