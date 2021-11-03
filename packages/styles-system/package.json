@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@llama-ui/styles-system",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Package to create llama components and styled props",
   "keywords": [
     "React Component",
