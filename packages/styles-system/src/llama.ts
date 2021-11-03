@@ -65,7 +65,7 @@ const llamaFactory = (element: LlamaElements) => {
       })
     }
 
-    return React.createElement('div', {
+    return React.createElement(element, {
       ...domProps,
       ref,
       className: css(classe),
