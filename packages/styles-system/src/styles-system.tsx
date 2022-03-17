@@ -16,7 +16,12 @@ const StylesSystem: (props: StylesSystemProps) => JSX.Element = ({
   //   React.createElement('div', { ref }, children)
 
   return (
-    <llama.div ref={ref} border="1px solid primary.800" {...rest}>
+    <llama.div
+      bg="primary.700"
+      ref={ref}
+      border="1px solid primary.800"
+      {...rest}
+    >
       {/* <Tag>asasdassd</Tag> */}
       {children}
     </llama.div>
