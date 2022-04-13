@@ -6,8 +6,8 @@ import { ThemeCSS } from '../type/theme'
 import * as config from '.'
 import pseudos from './pseudos'
 
-export const stylesConfig = (props: ThemeCSS<StylesConfigProps>) =>
-  css(
+export const stylesConfig = (props: ThemeCSS<StylesConfigProps>) => {
+  return css(
     config.background(props),
     config.border(props),
     config.color(props),
@@ -22,8 +22,9 @@ export const stylesConfig = (props: ThemeCSS<StylesConfigProps>) =>
     config.transforms(props),
     config.list(props)
   )
+}
 
 const styles = (props: ThemeCSS<StylesProps>): SerializedStyles =>
-  css(pseudos(props), stylesConfig(props))
+  css(pseudos(props.theme, props), stylesConfig(props))
 
 export default styles

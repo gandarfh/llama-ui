@@ -32,6 +32,7 @@ const convertToTheme = (
   if (cssProperty === 'font-size') {
     return makeCssProperty(cssProperty, getFontTheme(theme, value))
   }
+
   return makeCssProperty(cssProperty, getColorTheme(theme, value))
 }
 

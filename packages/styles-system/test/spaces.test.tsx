@@ -15,10 +15,10 @@ describe('System/Spaces', () => {
     const mStyle = spaces({
       theme,
       m: '20px',
-      mTop: '10px',
-      mBottom: '10px',
-      mLeft: '12px',
-      mRight: '5px',
+      mt: '10px',
+      mb: '10px',
+      ml: '12px',
+      mr: '5px',
     })
 
     const marginStyle = spaces({
@@ -53,10 +53,10 @@ describe('System/Spaces', () => {
     const pStyle = spaces({
       theme,
       p: '20px',
-      pTop: '10px',
-      pBottom: '10px',
-      pLeft: '12px',
-      pRight: '5px',
+      pt: '10px',
+      pb: '10px',
+      pl: '12px',
+      pr: '5px',
     })
 
     const paddingStyle = spaces({

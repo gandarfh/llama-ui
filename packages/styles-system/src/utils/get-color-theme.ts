@@ -1,5 +1,9 @@
 import { Theme } from '@emotion/react'
 
+const clearVariable = (token: string) => {
+  return token.replace(/var|\(|\)/g, '')
+}
+
 export const getOpacity = (value: number) => {
   if (value > 10 || value < 0) {
     throw new Error(
@@ -48,7 +52,9 @@ const getColorTheme = (theme?: Theme, color?: string | number) => {
 
     if (opacity) {
       const hexOpacity = getOpacity(Number(opacity))
-      const hexWithOpacity = hex + hexOpacity
+
+      const hexWithOpacity =
+        theme?.cssVars[clearVariable(hex)] ?? hex + hexOpacity
 
       cssPropertyValue = cssPropertyValue?.replace(item, hexWithOpacity)
       return cssPropertyValue

@@ -11,8 +11,8 @@ const Container = React.forwardRef<React.ElementRef<'main'>, ContainerProps>(
         w="100%"
         d="flex"
         flex={1}
-        pX="1rem"
-        mX="auto"
+        px="1rem"
+        mx="auto"
         flexDirection="column"
         maxW={['calc(100% - 20px)', 'calc(100% - 40px)', '900px', '1200px']}
         {...rest}

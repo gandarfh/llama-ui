@@ -1,7 +1,7 @@
 import { Meta, Story } from '@storybook/react'
 import React from 'react'
 
-import { Global, LlamaProvider, LlamaProviderProps } from '../src'
+import { LlamaProvider, LlamaProviderProps } from '../src'
 
 export default {
   title: 'Design System/ThemeSystem',
@@ -15,7 +15,6 @@ const Template: Story<LlamaProviderProps> = () => (
     <h1>Heading 1</h1>
     <h2>Heading 2</h2>
     <p>Paragraph Provider</p>
-    <Global />
   </LlamaProvider>
 )
 

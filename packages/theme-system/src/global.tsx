@@ -8,9 +8,10 @@ interface GlobalStylesPRops {
 const GlobalStyles = ({ styles }: GlobalStylesPRops) => (
   <Global
     styles={(theme) => css`
-      @import url('https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;300;400;500;600;700;800;900&display=swap');
+
       body {
-        font-family: ${theme.fonts.family};
+        font-family: ${theme.fonts.family.body};
         transition: background 0.5s;
         margin: 0;
         padding: 0;
@@ -18,6 +19,9 @@ const GlobalStyles = ({ styles }: GlobalStylesPRops) => (
         color: ${theme.colors.black[700]};
         font-size: ${theme.fonts.sizes.xs};
         font-weight: ${theme.fonts.weights.regular};
+      }
+      :is(h1, h2, h3, h4, h5, h6) {
+        font-family: ${theme.fonts.family.heading};
       }
       * {
         -moz-osx-font-smoothing: grayscale;

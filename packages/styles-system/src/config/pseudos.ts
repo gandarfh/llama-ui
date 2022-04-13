@@ -1,9 +1,8 @@
-import { css } from '@emotion/react'
+import { css, Theme } from '@emotion/react'
 import lodash from 'lodash'
 
 import { stylesConfig } from '../config'
 import { StylesConfigProps } from '../type/styles'
-import { ThemeCSS } from '../type/theme'
 
 export interface PseudosProps {
   /**
@@ -49,7 +48,7 @@ export interface PseudosProps {
   /**
    * Pseudo selector `:focus-within` css
    */
-  _focusWithin?: StylesConfigProps
+  _focusWithin?: Record<string, StylesConfigProps>
   /**
    * Pseudo selector `:hover` css
    */
@@ -68,29 +67,50 @@ export interface PseudosProps {
   _required?: StylesConfigProps
 }
 
-const createPseudo = (pseudo: string, props: ThemeCSS<StylesConfigProps>) => {
-  const { theme, ...rest } = props
+const createPseudo = (
+  pseudo: string,
+  theme: Theme,
+  props?: StylesConfigProps
+) => {
+  if (lodash.isEmpty(props)) return
 
-  if (lodash.isEmpty(rest)) return
-
-  return css({ [pseudo]: stylesConfig({ theme, ...rest }) })
+  return css({ [pseudo]: stylesConfig({ theme, ...props }) })
 }
 
-const pseudos = ({ theme, ...props }: ThemeCSS<PseudosProps>) =>
+const createFocusWithin = (
+  pseudo: string,
+  theme: Theme,
+  props?: Record<string, StylesConfigProps>
+) => {
+  if (lodash.isEmpty(props)) return
+
+  const elements = Object.keys(props!)
+
+  const style = elements.reduce((acc, current) => {
+    return {
+      acc,
+      [current]: stylesConfig({ theme, ...props![current] }),
+    }
+  }, {})
+
+  return css({ [pseudo]: style })
+}
+
+const pseudos = (theme: Theme, props: PseudosProps) =>
   css(
-    createPseudo('::after', { theme, ...props._after }),
-    createPseudo('::before', { theme, ...props._before }),
-    createPseudo('::placeholder', { theme, ...props._placeholder }),
-    createPseudo(':active', { theme, ...props._active }),
-    createPseudo(':checked', { theme, ...props._checked }),
-    createPseudo(':disabled', { theme, ...props._disabled }),
-    createPseudo(':first-of-type', { theme, ...props._firstOfType }),
-    createPseudo(':focus', { theme, ...props._focus }),
-    createPseudo(':focus-within', { theme, ...props._focusWithin }),
-    createPseudo(':hover', { theme, ...props._hover }),
-    createPseudo(':indeterminate', { theme, ...props._indeterminate }),
-    createPseudo(':last-of-type', { theme, ...props._lastOfType }),
-    createPseudo(':required', { theme, ...props._required })
+    createPseudo('::after', theme, props?._after),
+    createPseudo('::before', theme, props?._before),
+    createPseudo('::placeholder', theme, props?._placeholder),
+    createPseudo(':active', theme, props?._active),
+    createPseudo(':checked', theme, props?._checked),
+    createPseudo(':disabled', theme, props?._disabled),
+    createPseudo(':first-of-type', theme, props?._firstOfType),
+    createPseudo(':focus', theme, props?._focus),
+    createFocusWithin(':focus-within', theme, props?._focusWithin),
+    createPseudo(':hover', theme, props?._hover),
+    createPseudo(':indeterminate', theme, props?._indeterminate),
+    createPseudo(':last-of-type', theme, props?._lastOfType),
+    createPseudo(':required', theme, props?._required)
   )
 
 export default pseudos
