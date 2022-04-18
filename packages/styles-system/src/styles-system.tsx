@@ -1,3 +1,4 @@
+import { LlamaProvider } from '@llama-ui/theme-system'
 import React from 'react'
 
 import { llama } from '.'
@@ -13,15 +14,17 @@ const StylesSystem: (props: StylesSystemProps) => JSX.Element = ({
   const ref = React.useRef(null)
 
   return (
-    <llama.div
-      bg="primary.700/5"
-      ref={ref}
-      border="1px solid primary.800"
-      mx={0}
-      {...rest}
-    >
-      {children}
-    </llama.div>
+    <LlamaProvider>
+      <llama.div
+        ref={ref}
+        bg="primary.700/5"
+        border="1px solid primary.800"
+        mx={0}
+        {...rest}
+      >
+        {children}
+      </llama.div>
+    </LlamaProvider>
   )
 }
 

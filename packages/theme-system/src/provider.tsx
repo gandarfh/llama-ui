@@ -1,9 +1,8 @@
 import { Theme, ThemeProvider } from '@emotion/react'
 import React from 'react'
 
-import { theme as defaultTheme } from './config'
-import createToken from './css-vars/create-token'
-import setVars from './css-vars/set-vars'
+import defaultTheme from './config'
+import generateVars from './css-vars/generate-vars'
 import GlobalStyles from './global'
 export { useTheme } from '@emotion/react'
 
@@ -17,21 +16,10 @@ const LlamaProvider = ({ children, theme }: LlamaProviderProps) => {
     theme = defaultTheme
   }
 
-  const { config, components, breakpoints, ...rest } = theme
-
-  const { themeWithVars, cssVars } = createToken(rest, config)
-
-  setVars(cssVars)
+  generateVars(defaultTheme.cssVars)
 
   return (
-    <ThemeProvider
-      theme={{
-        ...themeWithVars,
-        components,
-        breakpoints,
-        cssVars,
-      }}
-    >
+    <ThemeProvider theme={theme}>
       {children} <GlobalStyles />
     </ThemeProvider>
   )

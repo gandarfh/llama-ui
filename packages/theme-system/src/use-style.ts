@@ -1,13 +1,7 @@
-import { StylesProps } from '@llama-ui/styles-system'
-
 import { useTheme } from '.'
 
-export type ComponentBaseType = {
-  baseStyle?: StylesProps
-  state?: Record<string, StylesProps>
-  variants?: Record<string, StylesProps>
-}
+export const useStyle = (component: string): any => {
+  const theme = useTheme()
 
-export const useStyle = () => {
-  return useTheme()
+  return theme.components[component]
 }

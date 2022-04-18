@@ -1,8 +1,8 @@
 export * from './config'
 export type {
+  Elements,
   HTMLLlama,
   LlamaComponent,
-  LlamaElements,
   LlamaFactoryElement,
   LlamaProps,
 } from './llama'

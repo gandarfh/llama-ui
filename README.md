@@ -27,31 +27,11 @@ import React from 'react'
 import { ThemeProvider } from '@llama-ui/react'
 
 const App = () => {
-  return <ThemeProvider>// your code</ThemeProvider>
+  return <ThemeProvider>...your code</ThemeProvider>
 }
 
 export default App
 ```
-
-## setting our theme in your project
-
-```tsx
-// styles/styled.d.ts
-import '@emotion/react'
-import { IThemeCustom } from '@llama-ui/react'
-
-declare module 'styled-components' {
-  export interface DefaultTheme extends IThemeCustom {}
-}
-```
-
-## Packages
-
-| Project     | Package                                                           | Version                                                                                                                       | Docs                                                                                                         |
-| ----------- | ----------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
-| React       | [`React`](https://npmjs.com/package/@llama-ui/react)              | [![latest](https://img.shields.io/npm/v/@llama-ui/react/latest.svg)](https://npmjs.com/package/@llama-ui/react)               | [![README](https://img.shields.io/badge/README--@llama-ui/react.svg)](packages/React/README.md)              |
-| Layout      | [`Layout`](https://npmjs.com/package/@llama-ui/layout)            | [![latest](https://img.shields.io/npm/v/@llama-ui/layout/latest.svg)](https://npmjs.com/package/@llama-ui/layout)             | [![README](https://img.shields.io/badge/README--@llama-ui/layout.svg)](packages/Layout/README.md)            |
-| ThemeSystem | [`ThemeSystem`](https://npmjs.com/package/@llama-ui/theme-system) | [![latest](https://img.shields.io/npm/v/@llama-ui/theme-system/latest.svg)](https://npmjs.com/package/@llama-ui/theme-system) | [![README](https://img.shields.io/badge/README--@llama-ui/theme-system.svg)](packages/ThemeSystem/README.md) |
 
 # Roadmap
 
@@ -66,6 +46,17 @@ declare module 'styled-components' {
 - [ ] typescript (llama.d.ts)
 - [ ] properties and colors keys
 - [ ] global styles
+
+## Factory
+
+- [x] styled system
+- [x] responsive props
+- [x] opacity colors tokens
+- [ ] custom theme
+- [ ] generate theme types
+- [x] support css variables
+- [ ] inject custom theme components into components
+- [ ] remove from repo documentations
 
 ## Components to create and more documentations
 

@@ -1,5 +1,7 @@
-const setVars = (vars: Record<string, string>) => {
+const generateVars = (vars?: Record<string, string>) => {
   let style = ''
+
+  if (!vars) return
 
   for (const cssVar of Object.keys(vars)) {
     style += `${cssVar}: ${vars[cssVar]};\n`
@@ -12,4 +14,4 @@ const setVars = (vars: Record<string, string>) => {
   document.head.appendChild(element)
 }
 
-export default setVars
+export default generateVars

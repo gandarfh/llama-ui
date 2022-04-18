@@ -1,5 +1,4 @@
-import { StylesProps } from '@llama-ui/styles-system'
-
+import createToken from '../css-vars/create-token'
 import { breakpoints } from './breakpoints'
 import { colorsLight } from './colors'
 import { fonts } from './fonts'
@@ -8,19 +7,46 @@ export * from './breakpoints'
 export * from './colors'
 export * from './fonts'
 
-type ComponentBaseType = {
-  baseStyle?: StylesProps
-  state?: Record<string, StylesProps>
-  variants?: Record<string, StylesProps>
-}
-
-const Box: ComponentBaseType = {
+const Box = {
+  defaultProps: {},
+  variants: {},
+  states: {},
+  sizes: {},
   baseStyle: {
     w: '100%',
   },
 }
 
-const Container: ComponentBaseType = {
+const Flex = {
+  defaultProps: {},
+  variants: {},
+  states: {},
+  sizes: {},
+  baseStyle: {
+    w: '100%',
+    alignItems: 'flex-start',
+    justifyContent = 'flex-start',
+    d: 'flex',
+    flex: 1,
+  },
+}
+
+const Grid = {
+  defaultProps: {},
+  variants: {},
+  states: {},
+  sizes: {},
+  baseStyle: {
+    w: '100%',
+    d: 'grid',
+  },
+}
+
+const Container = {
+  defaultProps: {},
+  variants: {},
+  states: {},
+  sizes: {},
   baseStyle: {
     w: '100%',
     d: 'flex',
@@ -32,18 +58,32 @@ const Container: ComponentBaseType = {
   },
 }
 
-export const theme = {
-  breakpoints,
+const config = {
+  prefix: 'llama',
+}
+
+const tokens = {
   colors: colorsLight,
-  config: {
-    prefix: 'llama',
-  },
   fonts,
-  components: {
-    Container,
-    Box,
-  },
-  cssVars: {},
+}
+
+const components = {
+  Container,
+  Box,
+  Grid,
+  Flex,
+}
+
+const { tokensWithVars, cssVars } = createToken(tokens, config)
+
+const theme = {
+  ...tokensWithVars,
+  breakpoints,
+  config,
+  components,
+  cssVars,
 }
 
 export type ThemeCustom = typeof theme
+
+export default theme

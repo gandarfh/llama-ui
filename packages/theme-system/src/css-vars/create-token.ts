@@ -1,12 +1,9 @@
-import { Theme } from '@emotion/react'
+const tokensWithVars = {} as any
 
-const themeWithVars = {}
-
-const cssVars = {} as const
+const cssVars = {} as any
 
 const concatToken = (...args: string[]) => {
   let str = ''
-
   for (const item of args) {
     if (typeof item === 'string') {
       str += `-${item}`
@@ -15,11 +12,11 @@ const concatToken = (...args: string[]) => {
   return str
 }
 
-const createToken = (
-  theme: Record<string, any>,
-  config: Theme['config'],
+const createToken = <Theme>(
+  theme: Theme,
+  config: Record<string, any>,
   prefix?: [string | undefined, string | undefined]
-) => {
+): { tokensWithVars: Theme; cssVars: Record<string, string> } => {
   const tokens = Object.keys(theme)
 
   for (const token of tokens) {
@@ -37,20 +34,20 @@ const createToken = (
     const key = `-${concatToken(config.prefix, old!, current!, token)}`
 
     if (old && current) {
-      themeWithVars[old] = {
-        ...themeWithVars[old],
+      tokensWithVars[old] = {
+        ...tokensWithVars[old],
         [current]: {
-          ...(themeWithVars[old] &&
-            themeWithVars[old][current] &&
-            themeWithVars[old][current]),
+          ...(tokensWithVars[old] &&
+            tokensWithVars[old][current] &&
+            tokensWithVars[old][current]),
           [token]: `var(${key})`,
         },
       }
     }
 
     if (!old && current) {
-      themeWithVars[current] = {
-        ...themeWithVars[current],
+      tokensWithVars[current] = {
+        ...tokensWithVars[current],
         [token]: `var(${key})`,
       }
     }
@@ -58,7 +55,7 @@ const createToken = (
     cssVars[key] = theme[token]
   }
 
-  return { themeWithVars, cssVars }
+  return { tokensWithVars, cssVars }
 }
 
 export default createToken
