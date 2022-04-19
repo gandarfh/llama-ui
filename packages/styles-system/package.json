@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@llama-ui/styles-system",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "description": "Package to create llama components and styled props",
   "keywords": [
     "React Component",
@@ -34,7 +34,7 @@
   },
   "dependencies": {
     "@emotion/css": "^11.5.0",
-    "@llama-ui/theme-system": "^0.0.1",
+    "@llama-ui/theme-system": "^1.0.0",
     "lodash": "^4.17.21"
   }
 }
