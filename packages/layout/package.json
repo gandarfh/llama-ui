@@ -33,6 +33,7 @@
     "build": "rm -rf lib && tsc"
   },
   "dependencies": {
-    "@llama-ui/styles-system": "^0.0.3"
+    "@llama-ui/styles-system": "^0.0.3",
+    "@llama-ui/theme-system": "^0.0.1"
   }
 }

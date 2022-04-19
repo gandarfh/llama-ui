@@ -25,6 +25,7 @@
     "build": "lerna run build",
     "pkg": "yarn workspace",
     "cli": "yarn pkg @llama-ui/cli start",
+    "tokens": "yarn pkg @llama-ui/tokens generate path='llama.d.ts'",
     "doc": "yarn pkg @llama-ui/doc start",
     "prepare": "husky install",
     "version-packages": "changeset version",

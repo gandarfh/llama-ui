@@ -33,6 +33,7 @@
     "build": "rm -rf lib && tsc"
   },
   "dependencies": {
-    "@emotion/react": "^11.5.0"
+    "@emotion/react": "^11.5.0",
+    "cal-sans": "^1.0.1"
   }
 }

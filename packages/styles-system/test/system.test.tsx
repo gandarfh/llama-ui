@@ -4,16 +4,21 @@ import '@testing-library/jest-dom'
 import { matchers } from '@emotion/jest'
 import { jsx } from '@emotion/react'
 import { LlamaProvider, theme } from '@llama-ui/theme-system'
+import createToken from '@llama-ui/theme-system/lib/css-vars/create-token'
 import { render, screen } from '@testing-library/react'
-import React from 'react'
 
 import { llama } from '../src'
 
 expect.extend(matchers)
 
+const { tokensWithVars, cssVars } = createToken(theme, theme.config)
+
+const customRender = (component: JSX.Element) =>
+  render(<LlamaProvider>{component}</LlamaProvider>)
+
 describe('System/System', () => {
   it('should create a component with llama', () => {
-    render(
+    customRender(
       <llama.div
         w="100px"
         h="100px"
@@ -32,7 +37,7 @@ describe('System/System', () => {
   })
 
   it('should colored with black.500 and black.50', () => {
-    render(
+    customRender(
       <LlamaProvider>
         <llama.div bgColor="black.50" data-testid="black-50-test" />
         <llama.div bgColor="black.500" data-testid="black-500-test" />
@@ -44,55 +49,40 @@ describe('System/System', () => {
 
     expect(received50).toHaveStyleRule(
       'background-color',
-      theme.colors.black[50]
+      tokensWithVars.colors.black[50]
     )
     expect(received500).toHaveStyleRule(
       'background-color',
-      theme.colors.black[500]
+      tokensWithVars.colors.black[500]
     )
   })
 
   it('should change to another html element when use `as` property', () => {
-    render(<llama.div as="span" data-testid="another-element-test" />)
+    customRender(<llama.div as="span" data-testid="another-element-test" />)
 
     const received = screen.getByTestId('another-element-test')
 
     expect(received.tagName).toBe('SPAN')
   })
-  it('should change the color theme any where on property', () => {
-    render(
-      <llama.div
-        boxShadow="inset 0px 4px 8px 1px black.400"
-        data-testid="any-property-test"
-      />
-    )
-
-    const received = screen.getByTestId('any-property-test')
-
-    expect(received).toHaveStyleRule(
-      'box-shadow',
-      `inset 0px 4px 8px 1px ${theme.colors.black[400]}`
-    )
-  })
 
   it('should use llama without llama provider', () => {
-    render(
+    customRender(
       <llama.div
-        boxShadow="inset 0px 4px 8px 1px primary.400"
-        data-testid="any-property-test"
+        shadow="inset 0px 4px 8px 1px black.400"
+        data-testid="shadow-test"
       />
     )
 
-    const received = screen.getByTestId('any-property-test')
+    const received = screen.getByTestId('shadow-test')
 
     expect(received).toHaveStyleRule(
       'box-shadow',
-      `inset 0px 4px 8px 1px ${theme.colors.primary[400]}`
+      `inset 0px 4px 8px 1px ${cssVars['--llama-colors-black-400']}`
     )
   })
 
   it('should render a svg element', () => {
-    render(
+    customRender(
       <llama.svg data-testid="svg-test">
         <llama.path data-testid="path-test">asda</llama.path>
       </llama.svg>

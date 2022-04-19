@@ -1,24 +1,27 @@
 import { llama, LlamaProps } from '@llama-ui/styles-system'
+import { Theme, useStyle } from '@llama-ui/theme-system'
 import React from 'react'
 
-export interface ContainerProps extends LlamaProps<'main'> {}
+export interface ContainerProps extends LlamaProps<'main'> {
+  variant?: keyof Theme['components']['Container']['variants']
+  state?: keyof Theme['components']['Container']['states']
+  size?: keyof Theme['components']['Container']['sizes']
+}
 
 const Container = React.forwardRef<React.ElementRef<'main'>, ContainerProps>(
   ({ children, ...rest }, ref) => {
+    const { baseStyle, states, variants } = useStyle('Container')
+
     return (
-      <llama.main
+      <llama.div
         ref={ref}
-        w="100%"
-        d="flex"
-        flex={1}
-        pX="1rem"
-        mX="auto"
-        flexDirection="column"
-        maxW={['calc(100% - 20px)', 'calc(100% - 40px)', '900px', '1200px']}
+        {...baseStyle}
+        {...(rest.variant && variants[rest.variant])}
+        {...(rest.state && states[rest.state])}
         {...rest}
       >
         {children}
-      </llama.main>
+      </llama.div>
     )
   }
 )

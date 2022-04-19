@@ -3,7 +3,10 @@ import { render, screen } from '@testing-library/react'
 import { axe } from 'jest-axe'
 import React from 'react'
 
+import createToken from '../src/css-vars/create-token'
 expect.extend(matchers)
+
+const { tokensWithVars } = createToken(theme, theme.config)
 
 import { Global, LlamaProvider, theme } from '../src'
 
@@ -38,7 +41,7 @@ describe('ThemeSystem', () => {
     const received = screen.getByTestId('provider-test')
     expect(received).toBeTruthy()
     expect(received).toHaveStyle({
-      color: theme.colors.black[700],
+      color: (tokensWithVars as any).colors.black[700],
     })
   })
 
@@ -52,7 +55,7 @@ describe('ThemeSystem', () => {
     const received = screen.getByTestId('provider-test')
     expect(received).toBeTruthy()
     expect(received).toHaveStyle({
-      color: theme.colors.black[700],
+      color: (tokensWithVars as any).colors.black[700],
       background: '#ff2',
     })
   })

@@ -5,6 +5,12 @@
     "outDir": "./lib",
     "removeComments": false
   },
-  "include": ["src", "../../llama.d.ts"],
-  "exclude": ["stories", "test"]
+  "include": [
+    "src",
+    "../../node_modules/@llama-ui/theme-system/lib/llama.d.ts"
+  ],
+  "exclude": [
+    "stories",
+    "test"
+  ]
 }

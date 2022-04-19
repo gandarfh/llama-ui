@@ -1,7 +1,9 @@
 import { Theme, ThemeProvider } from '@emotion/react'
 import React from 'react'
 
-import { theme as defaultTheme } from './config'
+import defaultTheme from './config'
+import generateVars from './css-vars/generate-vars'
+import GlobalStyles from './global'
 export { useTheme } from '@emotion/react'
 
 export interface LlamaProviderProps {
@@ -14,7 +16,13 @@ const LlamaProvider = ({ children, theme }: LlamaProviderProps) => {
     theme = defaultTheme
   }
 
-  return <ThemeProvider theme={theme}>{children}</ThemeProvider>
+  generateVars(defaultTheme.cssVars)
+
+  return (
+    <ThemeProvider theme={theme}>
+      {children} <GlobalStyles />
+    </ThemeProvider>
+  )
 }
 
 export default LlamaProvider

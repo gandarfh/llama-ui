@@ -8,6 +8,10 @@ export interface AlignmentProps {
   /**
    * The CSS `align-items` property
    */
+  align?: CSSResponsive<CSS.Property.AlignItems>
+  /**
+   * The CSS `align-items` property
+   */
   alignItems?: CSSResponsive<CSS.Property.AlignItems>
   /**
    * The CSS `align-content` property
@@ -21,6 +25,10 @@ export interface AlignmentProps {
    * The CSS `justify-items` property
    */
   justifyItems?: CSSResponsive<CSS.Property.JustifyItems>
+  /**
+   * The CSS `justify-content` property
+   */
+  justify?: CSSResponsive<CSS.Property.JustifyContent>
   /**
    * The CSS `justify-content` property
    */
@@ -45,11 +53,13 @@ export interface AlignmentProps {
 
 const alignment = ({ theme, ...props }: ThemeCSS<AlignmentProps>) =>
   css(
+    responsive(theme, 'align-items', props.align),
     responsive(theme, 'align-items', props.alignItems),
     responsive(theme, 'align-content', props.alignContent),
     responsive(theme, 'align-self', props.alignSelf),
     responsive(theme, 'justify-items', props.justifyItems),
     responsive(theme, 'justify-content', props.justifyContent),
+    responsive(theme, 'justify-content', props.justify),
     responsive(theme, 'justify-self', props.justifySelf),
     responsive(theme, 'place-items', props.placeItems),
     responsive(theme, 'place-content', props.placeContent),

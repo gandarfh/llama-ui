@@ -12,27 +12,27 @@ export interface SpacesProps {
   /**
    * The CSS `margin-right` and `margin-left` property
    */
-  mX?: CSSResponsive<CSS.Property.MarginRight | number>
+  mx?: CSSResponsive<CSS.Property.MarginRight | number>
   /**
    * The CSS `margin-top` and `margin-bottom` property
    */
-  mY?: CSSResponsive<CSS.Property.MarginTop | number>
+  my?: CSSResponsive<CSS.Property.MarginTop | number>
   /**
    * The CSS `margin-top` property
    */
-  mTop?: CSSResponsive<CSS.Property.MarginTop | number>
+  mt?: CSSResponsive<CSS.Property.MarginTop | number>
   /**
    * The CSS `margin-right` property
    */
-  mRight?: CSSResponsive<CSS.Property.MarginRight | number>
+  mr?: CSSResponsive<CSS.Property.MarginRight | number>
   /**
    * The CSS `margin-bottom` property
    */
-  mBottom?: CSSResponsive<CSS.Property.MarginBottom | number>
+  mb?: CSSResponsive<CSS.Property.MarginBottom | number>
   /**
    * The CSS `margin-left` property
    */
-  mLeft?: CSSResponsive<CSS.Property.MarginLeft | number>
+  ml?: CSSResponsive<CSS.Property.MarginLeft | number>
   /**
    * The CSS `margin` property
    */
@@ -68,27 +68,27 @@ export interface SpacesProps {
   /**
    * The CSS `padding-left` and `padding-right` property
    */
-  pX?: CSSResponsive<CSS.Property.PaddingRight | number>
+  px?: CSSResponsive<CSS.Property.PaddingRight | number>
   /**
    * The CSS `padding-top` and `padding-bottom` property
    */
-  pY?: CSSResponsive<CSS.Property.PaddingTop | number>
+  py?: CSSResponsive<CSS.Property.PaddingTop | number>
   /**
    * The CSS `padding-top` property
    */
-  pTop?: CSSResponsive<CSS.Property.PaddingTop | number>
+  pt?: CSSResponsive<CSS.Property.PaddingTop | number>
   /**
    * The CSS `padding-right` property
    */
-  pRight?: CSSResponsive<CSS.Property.PaddingRight | number>
+  pr?: CSSResponsive<CSS.Property.PaddingRight | number>
   /**
    * The CSS `padding-bottom` property
    */
-  pBottom?: CSSResponsive<CSS.Property.PaddingBottom | number>
+  pb?: CSSResponsive<CSS.Property.PaddingBottom | number>
   /**
    * The CSS `padding-left` property
    */
-  pLeft?: CSSResponsive<CSS.Property.PaddingLeft | number>
+  pl?: CSSResponsive<CSS.Property.PaddingLeft | number>
   /**
    * The CSS `padding` property
    */
@@ -134,37 +134,37 @@ export interface SpacesProps {
 const spaces = ({ theme, ...props }: ThemeCSS<SpacesProps>) =>
   css(
     responsive(theme, 'margin', props.m),
-    responsive(theme, 'margin-left', props.mX),
-    responsive(theme, 'margin-right', props.mX),
-    responsive(theme, 'margin-top', props.mY),
-    responsive(theme, 'margin-bottom', props.mY),
+    responsive(theme, 'margin-left', props.mx),
+    responsive(theme, 'margin-right', props.mx),
+    responsive(theme, 'margin-top', props.my),
+    responsive(theme, 'margin-bottom', props.my),
     responsive(theme, 'margin-left', props.marginX),
     responsive(theme, 'margin-right', props.marginX),
     responsive(theme, 'margin-top', props.marginY),
     responsive(theme, 'margin-bottom', props.marginY),
-    responsive(theme, 'margin-top', props.mTop),
-    responsive(theme, 'margin-bottom', props.mBottom),
-    responsive(theme, 'margin-left', props.mLeft),
-    responsive(theme, 'margin-right', props.mRight),
+    responsive(theme, 'margin-top', props.mt),
+    responsive(theme, 'margin-bottom', props.mb),
+    responsive(theme, 'margin-left', props.ml),
+    responsive(theme, 'margin-right', props.mr),
     responsive(theme, 'margin', props.margin),
     responsive(theme, 'margin-top', props.marginTop),
     responsive(theme, 'margin-bottom', props.marginBottom),
     responsive(theme, 'margin-left', props.marginLeft),
     responsive(theme, 'margin-right', props.marginRight),
     responsive(theme, 'padding', props.p),
-    responsive(theme, 'padding-top', props.pTop),
-    responsive(theme, 'padding-bottom', props.pBottom),
-    responsive(theme, 'padding-left', props.pLeft),
-    responsive(theme, 'padding-right', props.pRight),
+    responsive(theme, 'padding-top', props.pt),
+    responsive(theme, 'padding-bottom', props.pb),
+    responsive(theme, 'padding-left', props.pl),
+    responsive(theme, 'padding-right', props.pr),
     responsive(theme, 'padding', props.padding),
     responsive(theme, 'padding-top', props.paddingTop),
     responsive(theme, 'padding-bottom', props.paddingBottom),
     responsive(theme, 'padding-left', props.paddingLeft),
     responsive(theme, 'padding-right', props.paddingRight),
-    responsive(theme, 'padding-left', props.pX),
-    responsive(theme, 'padding-right', props.pX),
-    responsive(theme, 'padding-top', props.pY),
-    responsive(theme, 'padding-bottom', props.pY),
+    responsive(theme, 'padding-left', props.px),
+    responsive(theme, 'padding-right', props.px),
+    responsive(theme, 'padding-top', props.py),
+    responsive(theme, 'padding-bottom', props.py),
     responsive(theme, 'padding-left', props.paddingX),
     responsive(theme, 'padding-right', props.paddingX),
     responsive(theme, 'padding-top', props.paddingY),

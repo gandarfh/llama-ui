@@ -5,24 +5,32 @@ import lodash from 'lodash'
 import React from 'react'
 
 import { styles, StylesProps } from '.'
-import { tags, TagType } from './tags'
+import { tags } from './tags'
 import getDomProps from './utils/get-dom-props'
 
-export type HTMLLlama<Element> = Omit<
-  React.AllHTMLAttributes<Element>,
+export type Elements = keyof JSX.IntrinsicElements
+
+export type ElementsAttributes<T extends Elements> = JSX.IntrinsicElements[T]
+
+export type HTMLLlama<T extends Elements> = Omit<
+  ElementsAttributes<T>,
   keyof StylesProps
 >
-
-export type LlamaElements = TagType
 
 type ReactRef = {
   ref?: React.Ref<HTMLElement | SVGElement> | null | any
 }
 
-export type LlamaProps<T> = StylesProps & HTMLLlama<T> & ReactRef
-export type LlamaComponent<T> = (props: LlamaProps<T>) => JSX.Element
+export type LlamaProps<T extends Elements> = StylesProps &
+  HTMLLlama<T> &
+  ReactRef & {
+    as?: Elements
+  }
+export type LlamaComponent<T extends Elements> = (
+  props: LlamaProps<T>
+) => JSX.Element
 export type LlamaFactoryElement = {
-  [tag in LlamaElements]: LlamaComponent<tag>
+  [tag in Elements]: LlamaComponent<tag>
 }
 
 /**
@@ -30,17 +38,17 @@ export type LlamaFactoryElement = {
  *
  * exemple:
  * ```tsx
- *  const ComponentDiv = llamaFactory('div')
+ *  const Div = llamaFactory('div')
  *
  *  const App = () => {
  *   return (
- *    <ComponentDiv bg="primary.400">...something</ComponentDiv>
+ *    <Div bg="primary.400">...something</Div>
  *   )
  *  }
  * ```
  */
-const llamaFactory = (element: LlamaElements) => {
-  return React.forwardRef((props: LlamaProps<typeof element>, ref) => {
+const llamaFactory = <T extends Elements>(element: T) => {
+  const component = React.forwardRef<any, LlamaProps<T>>((props, ref) => {
     // get all valid dom properties.
     const { domProps } = getDomProps(element, props)
 
@@ -58,19 +66,30 @@ const llamaFactory = (element: LlamaElements) => {
 
     // valid if have property `as`, this property will change the dom element selected my element argument.
     if (props?.as) {
-      return React.createElement(props?.as, {
+      return React.createElement(
+        props?.as as string,
+        {
+          ...domProps,
+          ref,
+          className: css(classe),
+        },
+        props.children
+      )
+    }
+
+    return React.createElement(
+      element,
+      {
         ...domProps,
         ref,
         className: css(classe),
-      })
-    }
-
-    return React.createElement(element, {
-      ...domProps,
-      ref,
-      className: css(classe),
-    })
+      },
+      props.children
+    )
   })
+
+  component.displayName = `llama.${String(element)}`
+  return component
 }
 
 /**

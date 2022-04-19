@@ -12,9 +12,19 @@ expect.extend(matchers)
 
 describe('System/Pseudos', () => {
   it('should create a pseudo if have properties', async () => {
-    const pseudoHover = pseudos({
-      theme,
+    const pseudoHover = pseudos(theme, {
       _hover: { bg: 'primary.400' },
+    })
+
+    render(<div css={pseudoHover} data-testid="pseudos-test" />)
+    const received = screen.getByTestId('pseudos-test')
+
+    expect(received).toBeTruthy()
+  })
+
+  it('should add focus with another element', async () => {
+    const pseudoHover = pseudos(theme, {
+      _focusWithin: { div: { bg: 'primary.400' } },
     })
 
     render(<div css={pseudoHover} data-testid="pseudos-test" />)

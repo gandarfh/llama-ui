@@ -5,8 +5,8 @@
 
 import memoize from '@emotion/memoize'
 
-import { LlamaProps } from '../llama'
-import { svgTags, TagType } from '../tags'
+import { Elements, LlamaProps } from '../llama'
+import { svgTags } from '../tags'
 import { htmlValidProps, svgValidProps } from './props'
 
 const htmlPropsRegex = new RegExp(
@@ -23,7 +23,10 @@ const isSvgTag = memoize((prop) => svgTagsRegex.test(prop))
 const isSvgPropsValid = memoize((prop) => svgPropsRegex.test(prop))
 const isHtmlPropValid = memoize((prop) => htmlPropsRegex.test(prop))
 
-const getDomProps = (element: TagType, props: LlamaProps<typeof element>) => {
+const getDomProps = <T extends Elements>(
+  element: Elements,
+  props: LlamaProps<T>
+) => {
   const stylesProps = {}
   const domProps = {}
   const keyProps = Object.keys(props)

@@ -1,7 +1,11 @@
 export type FontsType = Record<string, unknown>
 
 export const fonts = {
-  family: "'Lato'",
+  family: {
+    heading:
+      "Cal Sans,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+    body: "Inter,-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol'",
+  },
   weights: {
     thin: 100,
     light: 300,
