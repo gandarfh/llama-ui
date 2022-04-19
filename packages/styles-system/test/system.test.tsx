@@ -11,11 +11,14 @@ import { llama } from '../src'
 
 expect.extend(matchers)
 
-const { themeWithVars, cssVars } = createToken(theme, theme.config)
+const { tokensWithVars, cssVars } = createToken(theme, theme.config)
+
+const customRender = (component: JSX.Element) =>
+  render(<LlamaProvider>{component}</LlamaProvider>)
 
 describe('System/System', () => {
   it('should create a component with llama', () => {
-    render(
+    customRender(
       <llama.div
         w="100px"
         h="100px"
@@ -34,7 +37,7 @@ describe('System/System', () => {
   })
 
   it('should colored with black.500 and black.50', () => {
-    render(
+    customRender(
       <LlamaProvider>
         <llama.div bgColor="black.50" data-testid="black-50-test" />
         <llama.div bgColor="black.500" data-testid="black-500-test" />
@@ -46,16 +49,16 @@ describe('System/System', () => {
 
     expect(received50).toHaveStyleRule(
       'background-color',
-      (themeWithVars as any).colors.black[50]
+      tokensWithVars.colors.black[50]
     )
     expect(received500).toHaveStyleRule(
       'background-color',
-      (themeWithVars as any).colors.black[500]
+      tokensWithVars.colors.black[500]
     )
   })
 
   it('should change to another html element when use `as` property', () => {
-    render(<llama.div as="span" data-testid="another-element-test" />)
+    customRender(<llama.div as="span" data-testid="another-element-test" />)
 
     const received = screen.getByTestId('another-element-test')
 
@@ -63,7 +66,7 @@ describe('System/System', () => {
   })
 
   it('should use llama without llama provider', () => {
-    render(
+    customRender(
       <llama.div
         shadow="inset 0px 4px 8px 1px black.400"
         data-testid="shadow-test"
@@ -79,7 +82,7 @@ describe('System/System', () => {
   })
 
   it('should render a svg element', () => {
-    render(
+    customRender(
       <llama.svg data-testid="svg-test">
         <llama.path data-testid="path-test">asda</llama.path>
       </llama.svg>

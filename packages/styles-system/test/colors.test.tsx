@@ -117,29 +117,16 @@ describe('System/Colors', () => {
 
   it('should return all colors from any color keys', () => {
     const primaryAndBlack = getColorTheme(theme, 'primary.400 black.400')
-    const primaryAndBlackWithOpa = getColorTheme(
-      theme,
-      'primary.400/8 black.400/4'
-    )
-
-    const primaryOpa = getOpacity(8)
-    const blackOpa = getOpacity(4)
 
     expect(primaryAndBlack).toMatch(
       `${theme.colors.primary[400]} ${theme.colors.black[400]}`
     )
-    expect(primaryAndBlackWithOpa).toMatch(
-      `${theme.colors.primary[400] + primaryOpa} ${
-        theme.colors.black[400] + blackOpa
-      }`
-    )
   })
 
   it('should return the color with somes opacities', () => {
-    const property = getColorTheme(theme, 'primary.400/3')
-    const opacity = getOpacity(3)
+    const property = getColorTheme(theme, 'primary.400')
 
-    expect(property).toMatch(theme.colors.primary[400] + opacity)
+    expect(property).toMatch(theme.colors.primary[400])
   })
 
   it('should throw the opacity if is float value', () => {
