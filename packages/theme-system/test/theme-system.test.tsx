@@ -6,7 +6,7 @@ import React from 'react'
 import createToken from '../src/css-vars/create-token'
 expect.extend(matchers)
 
-const { themeWithVars } = createToken(theme, theme.config)
+const { tokensWithVars } = createToken(theme, theme.config)
 
 import { Global, LlamaProvider, theme } from '../src'
 
@@ -41,7 +41,7 @@ describe('ThemeSystem', () => {
     const received = screen.getByTestId('provider-test')
     expect(received).toBeTruthy()
     expect(received).toHaveStyle({
-      color: (themeWithVars as any).colors.black[700],
+      color: (tokensWithVars as any).colors.black[700],
     })
   })
 
@@ -55,7 +55,7 @@ describe('ThemeSystem', () => {
     const received = screen.getByTestId('provider-test')
     expect(received).toBeTruthy()
     expect(received).toHaveStyle({
-      color: (themeWithVars as any).colors.black[700],
+      color: (tokensWithVars as any).colors.black[700],
       background: '#ff2',
     })
   })
