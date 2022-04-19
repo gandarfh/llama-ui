@@ -17,10 +17,10 @@ export const getOpacity = (value: number) => {
     throw new Error(`The opacity must be a integer value. You pass: ${value}.`)
   }
 
-  const toHex = (a: number) => a.toString(16)
-  const toOpacity = (a: number) => toHex(Math.trunc((a * 255) / 10))
+  const numberToHex = (a: number) => a.toString(16)
+  const hexOfOpacity = (a: number) => numberToHex(Math.trunc((a * 255) / 10))
 
-  const opacity = toOpacity(value)
+  const opacity = hexOfOpacity(value)
 
   return opacity
 }

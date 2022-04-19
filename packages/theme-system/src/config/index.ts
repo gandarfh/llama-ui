@@ -25,7 +25,7 @@ const Flex = {
   baseStyle: {
     w: '100%',
     alignItems: 'flex-start',
-    justifyContent = 'flex-start',
+    justifyContent: 'flex-start',
     d: 'flex',
     flex: 1,
   },
