@@ -17,7 +17,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "devDependencies": {
+  "dependencies": {
     "prettier": "^2.4.1"
   },
   "scripts": {}
