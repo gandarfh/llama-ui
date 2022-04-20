@@ -1,0 +1,24 @@
+{
+  "private": false,
+  "name": "@llama-ui/prettier-config",
+  "version": "0.0.1",
+  "description": "reusables eslint configs",
+  "keywords": [
+    "React Component",
+    "llama ui",
+    "eslint-config"
+  ],
+  "author": "Joao <jgdsantosferreira@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gandarfh/llama-ui.git"
+  },
+  "main": "index.js",
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "prettier": "^2.4.1"
+  },
+  "scripts": {}
+}
