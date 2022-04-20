@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@llama-ui/prettier-config",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "reusables eslint configs",
   "keywords": [
     "React Component",
