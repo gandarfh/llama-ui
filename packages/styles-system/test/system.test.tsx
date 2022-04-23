@@ -10,8 +10,8 @@ import { render, screen } from '@testing-library/react'
 import { llama } from '../src'
 
 expect.extend(matchers)
-
-const { tokensWithVars, cssVars } = createToken(theme, theme.config)
+const { fonts, colors, config } = theme
+const { tokensWithVars, cssVars } = createToken({ fonts, colors }, config)
 
 const customRender = (component: JSX.Element) =>
   render(<LlamaProvider>{component}</LlamaProvider>)
