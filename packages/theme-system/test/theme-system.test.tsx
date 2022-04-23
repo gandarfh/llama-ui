@@ -6,9 +6,11 @@ import React from 'react'
 import createToken from '../src/css-vars/create-token'
 expect.extend(matchers)
 
-const { tokensWithVars } = createToken(theme, theme.config)
+const { config, fonts, colors } = theme
 
-import { Global, LlamaProvider, theme } from '../src'
+const { tokensWithVars } = createToken({ fonts, colors }, config)
+
+import { GlobalStyle, LlamaProvider, theme } from '../src'
 
 describe('ThemeSystem', () => {
   it('should render the provider', () => {
@@ -34,7 +36,7 @@ describe('ThemeSystem', () => {
   it('should apply global styles for all elements', () => {
     render(
       <LlamaProvider theme={theme}>
-        <Global />
+        <GlobalStyle />
         <div data-testid="provider-test">ThemeSystem</div>
       </LlamaProvider>
     )
@@ -42,28 +44,13 @@ describe('ThemeSystem', () => {
     expect(received).toBeTruthy()
     expect(received).toHaveStyle({
       color: (tokensWithVars as any).colors.black[700],
-    })
-  })
-
-  it('should apply custom global styles for all elements', () => {
-    render(
-      <LlamaProvider theme={theme}>
-        <Global styles={() => ({ div: { background: '#ff2' } })} />
-        <div data-testid="provider-test">ThemeSystem</div>
-      </LlamaProvider>
-    )
-    const received = screen.getByTestId('provider-test')
-    expect(received).toBeTruthy()
-    expect(received).toHaveStyle({
-      color: (tokensWithVars as any).colors.black[700],
-      background: '#ff2',
     })
   })
 
   it('should validate accessibility', async () => {
     const { container } = render(
       <LlamaProvider>
-        <Global />
+        <GlobalStyle />
         <div data-testid="provider-test">ThemeSystem</div>
       </LlamaProvider>
     )

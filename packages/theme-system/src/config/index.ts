@@ -1,3 +1,6 @@
+import { CSSObject } from '@emotion/react'
+
+import { Theme } from '..'
 import createToken from '../css-vars/create-token'
 import { breakpoints } from './breakpoints'
 import { colorsLight } from './colors'
@@ -74,6 +77,28 @@ const components = {
   Flex,
 }
 
+const global = (theme: Theme): CSSObject => ({
+  body: {
+    fontFamily: theme.fonts.family.body,
+    margin: 0,
+    padding: 0,
+    color: theme.colors.black[700],
+    fontSize: theme.fonts.sizes.m,
+    fontWeight: theme.fonts.weights.regular,
+  },
+  ':is(h1, h2, h3, h4, h5, h6)': {
+    fontFamily: theme.fonts.family.heading,
+  },
+  '*': {
+    MozOsxFontSmoothing: 'grayscale',
+    WebkitFontSmoothing: 'antialiased',
+    boxSizing: 'border-box',
+    color: theme.colors.black[700],
+    margin: 0,
+    padding: 0,
+  },
+})
+
 const { tokensWithVars, cssVars } = createToken(tokens, config)
 
 const theme = {
@@ -81,6 +106,7 @@ const theme = {
   breakpoints,
   config,
   components,
+  global,
   cssVars,
 }
 

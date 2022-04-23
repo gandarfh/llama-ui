@@ -1,6 +1,6 @@
 export { default as theme } from './config'
 export * from './config'
-export { default as Global } from './global'
+export { default as GlobalStyle } from './global'
 export { default as LlamaProvider } from './provider'
 export * from './provider'
 export * from './use-style'
