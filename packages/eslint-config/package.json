@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "@llama-ui/eslint-config",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "reusables eslint configs",
   "keywords": [
     "React Component",
