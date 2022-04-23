@@ -1,5 +1,11 @@
 # @llama-ui/eslint-config
 
+## 0.1.2
+
+### Patch Changes
+
+- 5b640fd: add dependencies do peer dependency
+
 ## 0.1.1
 
 ### Patch Changes
